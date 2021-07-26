@@ -1,0 +1,27 @@
+
+  <div class="pokemon-card" *ngIf="pokemon">
+      <div class="pokemon-card__image"> 
+
+          <a (click)="getDetailsPokemon()">
+            <img
+            [src]="getPokemonImage(pokemon)"
+            alt="Pokemon Image"> 
+          </a>
+
+      </div>
+    
+      <div class="pokemon-card__number">
+        Nº {{ getPokemonNumber(pokemon) }}
+      </div>
+    
+      <div class="pokemon-card__name">
+        {{ pokemon.name }}
+      </div>
+    
+      <div class="pokemon-card__types">
+        <div class="pokemon-card__type" *ngFor="let type of pokemon.types"
+            [class]="'pokemon-card__type--' + type.toLowerCase()">
+          {{ type }}
+        </div>
+      </div>
+  </div>

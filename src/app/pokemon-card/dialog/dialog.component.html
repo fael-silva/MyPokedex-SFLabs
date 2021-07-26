@@ -1,0 +1,62 @@
+<div class="container-top">
+    <img [src]="data.pokemonDetail.urlImg"  alt="">
+    <div class="pokemon-card__number">
+        Nº {{ leadingZero(data.pokemonDetail.number) }}
+    </div>
+    <div class="pokemon-card__name">
+        {{ data.pokemonDetail.name }}
+    </div>
+
+    <div class="pokemon-card__types">
+        <div class="pokemon-card__type" *ngFor="let type of data.pokemonDetail.types"
+            [class]="'pokemon-card__type--' + type">
+            {{ type }}
+        </div>
+    </div>
+
+</div>
+<hr>
+<div class="stats-container">
+    <table class="table-detail">
+        <b>
+            <td>
+                <tr>Nº Nacional</tr>
+                <tr>Tipo</tr>
+                <tr>Altura</tr>
+                <tr>Peso</tr>
+                <tr>Habilidades</tr>
+                <tr>Base de experiência</tr>
+            </td>
+        </b>
+        <td class="second-colum">
+            <tr> {{ leadingZero(data.pokemonDetail.number) }}</tr>
+            <tr> {{ data.pokemonDetail.types }} </tr>
+            <tr> {{ (data.pokemonDetail.height)/10 }} m </tr>
+            <tr> {{ (data.pokemonDetail.weight)/10 }} Kg </tr>
+            <tr> {{ data.pokemonDetail.abilities }} </tr>
+            <tr> {{ data.pokemonDetail.base_experience }} </tr>
+        </td>
+    </table>
+</div>
+<hr>
+<div class="title-stats">
+    <h3>
+        Estatísticas de base
+    </h3>
+</div>
+
+<div class="stats-container">
+    <table class="table-detail stat">
+        <td class="first-colum stat-box">
+            <tr *ngFor="let stat of data.pokemonDetail.stats">
+                {{stat.name}}
+            </tr>
+        </td>
+        
+        <td class="second-colum stat-box">
+            <tr *ngFor="let stat of data.pokemonDetail.stats"> 
+                {{stat.base_stat}} 
+            </tr>
+        </td>
+    </table>
+</div>
